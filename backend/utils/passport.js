@@ -2,6 +2,8 @@ const passport = require("passport");
 const refresh = require("passport-oauth2-refresh");
 const Strategy = require("passport-discord").Strategy;
 const { discord } = require("../../config");
+const sanitizeUsername = require("./sanitizeUsername");
+const User = require("../models/User");
 
 module.exports = (app) => {
   passport.serializeUser(function (u, d) {
@@ -20,6 +22,11 @@ module.exports = (app) => {
       prompt: discord.prompt,
     },
     async (accesstoken, refreshToken, profile, done) => {
+      if (!(await User.exists({ id: profile.id })))
+        await new User({
+          id: profile.id,
+          username: sanitizeUsername(profile.username) || Date.now(),
+        }).save();
       return done(null, profile);
     }
   );

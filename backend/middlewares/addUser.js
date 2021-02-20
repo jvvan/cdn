@@ -1,16 +1,10 @@
 const Token = require("../models/Token");
 const User = require("../models/User");
-const sanitizeUsername = require("../utils/sanitizeUsername");
 
 module.exports = async (req, res, next) => {
   if (req.session.discord) {
     const discord = req.session.discord;
-    const user =
-      (await User.findOne({ id: discord.id })) ||
-      (await new User({
-        id: discord.id,
-        username: sanitizeUsername(discord.username) || Date.now(),
-      }).save());
+    const user = await User.findOne({ id: discord.id });
     res.locals.user = user;
     res.locals.discord = discord;
   } else if (req.header("Authorization")) {
