@@ -45,7 +45,7 @@ const main = async () => {
       process.exit(1);
     });
   app.listen(config.port, config.hostname, () =>
-    console.log(`Listening on ${config.hostname}:${config.host}!`)
+    console.log(`Listening on ${config.hostname}:${config.port}!`)
   );
 };
 
