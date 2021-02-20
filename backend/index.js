@@ -44,9 +44,9 @@ const main = async () => {
       console.error(e);
       process.exit(1);
     });
-  app.listen(8080, () => {
-    console.log("Listening on 8080");
-  });
+  app.listen(config.port, config.hostname, () =>
+    console.log(`Listening on ${config.hostname}:${config.host}!`)
+  );
 };
 
 main();
