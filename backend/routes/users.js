@@ -130,4 +130,16 @@ router.patch("/:_id", auth("admin"), async (req, res) => {
   }
 });
 
+router.delete("/:_id", auth("admin"), async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const user = await User.findOne({ _id });
+    if (!user) return res.status(404).json({ error: "Not Found" });
+    await user.remove();
+    res.json(user);
+  } catch {
+    res.status(404).json({ error: "Not Found" });
+  }
+});
+
 module.exports = router;

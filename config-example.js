@@ -6,7 +6,7 @@ module.exports = {
     client_secret: "",
     client_id: "",
     callback: "http://localhost:8080/api/auth/discord/callback",
-    scope: ["identify", "email"],
+    scope: ["identify"],
     prompt: "none",
   },
   session: {

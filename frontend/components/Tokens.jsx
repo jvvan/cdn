@@ -14,6 +14,9 @@ export default function Tokens() {
         const token = await res.json();
         toast.success("Token has been deleted!");
         setTokens((state) => state.filter((t) => t._id !== token._id));
+      } else {
+        const data = await res.json();
+        if (data?.error) toast.error(data.error);
       }
     }
   }
@@ -25,6 +28,9 @@ export default function Tokens() {
       toast.success("Token created!");
       const token = await res.json();
       setTokens((state) => [...state, token]);
+    } else {
+      const data = await res.json();
+      if (data?.error) toast.error(data.error);
     }
   }
   useEffect(() => {

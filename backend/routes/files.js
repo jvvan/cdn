@@ -60,7 +60,6 @@ router.delete(
     const filepath = path.join(config.files.storage, `${key}.${doc.type}`);
     if (!filepath.startsWith(config.files.storage))
       return res.status(400).json({ error: "Invalid path!" });
-    console.log(filepath);
     await File.deleteOne({ _id: key });
     try {
       fs.unlinkSync(filepath);

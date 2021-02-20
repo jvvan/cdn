@@ -9,9 +9,7 @@ module.exports = async (req, res, next) => {
       (await User.findOne({ id: discord.id })) ||
       (await new User({
         id: discord.id,
-        username: (await User.exists({ username: discord.username }))
-          ? Date.now()
-          : sanitizeUsername(discord.username) || Date.now(),
+        username: sanitizeUsername(discord.username) || Date.now(),
       }).save());
     res.locals.user = user;
     res.locals.discord = discord;

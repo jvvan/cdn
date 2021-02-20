@@ -23,6 +23,12 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/files", require("./routes/files"));
 app.use("/api/users", require("./routes/users"));
 app.use(require("./routes/"));
+app.use("/api", (req, res) => {
+  res.status(404).json({ error: "Route Not Found" });
+});
+app.use((error, req, res, next) => {
+  res.status(500).json({ error });
+});
 
 app.get("*", (_, res) => {
   res.sendFile("index.html", { root: __dirname + "/../dist/" });

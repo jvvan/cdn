@@ -55,7 +55,6 @@ export default function UserEdit() {
     })
       .then((r) => r.json())
       .catch(() => {});
-    console.log(res);
     if (!res || res.error) {
       toast.error(res?.error || "Server Error");
       setLoading(false);
@@ -63,7 +62,6 @@ export default function UserEdit() {
       toast.success("Saved!");
       setLoading(false);
     }
-    console.log(username, whitelisted, admin);
   }
   return (
     <Container>
