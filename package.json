@@ -21,7 +21,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.6.0",
     "cookie-parser": "^1.4.5",
-    "easy-peasy": "^4.0.1",
+    "easy-peasy": "^5.0.1",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "express-rate-limit": "^5.2.6",
