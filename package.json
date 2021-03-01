@@ -4,8 +4,9 @@
   "description": "",
   "main": "backend/index.js",
   "scripts": {
-    "start": "npm run build && node .",
+    "start": "npm run clean && npm run build && node .",
     "build": "parcel build frontend/index.html",
+    "clean": "rm -rf dist/ .cache/",
     "watch:frontend": "parcel watch frontend/index.html",
     "watch:backend": "nodemon"
   },
