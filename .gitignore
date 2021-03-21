@@ -4,3 +4,4 @@ dist
 temp
 config.js
 files
+package-lock.json

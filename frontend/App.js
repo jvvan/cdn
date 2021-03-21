@@ -18,6 +18,7 @@ import { ToastContainer } from "react-toastify";
 import UserEdit from "./components/UserEdit";
 import Tokens from "./components/Tokens";
 import Settings from "./components/Settings";
+import AccessDenied from "./components/AccessDenied";
 
 export default () => {
   const loading = useStoreState((state) => state.loading);
@@ -65,7 +66,10 @@ export default () => {
               <WhitelistedRoute path="/upload" exact component={Upload} />
               <AdminRoute path="/admin/users/:id" component={UserEdit} />
               <AdminRoute path="/admin/users" exact component={Users} />
-              <Route path="*" component={NotFound} />
+              <Route
+                path="*"
+                children={<AccessDenied text="Page not found!" title="" />}
+              />
             </Switch>
           </>
         ) : (
@@ -76,11 +80,3 @@ export default () => {
     </>
   );
 };
-
-function NotFound() {
-  return (
-    <>
-      <div>Not Found</div>
-    </>
-  );
-}
