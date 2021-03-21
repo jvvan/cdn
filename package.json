@@ -5,7 +5,7 @@
   "main": "backend/index.js",
   "scripts": {
     "start": "npm run clean && npm run build && node .",
-    "build": "parcel build frontend/index.html",
+    "build": "parcel build frontend/index.html --no-source-maps",
     "clean": "rm -rf dist/ .cache/",
     "watch:frontend": "parcel watch frontend/index.html",
     "watch:backend": "nodemon"

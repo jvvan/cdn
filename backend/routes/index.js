@@ -15,15 +15,15 @@ router.get("/files/embed/:key", (req, res) => {
     const html = `
 <meta property="og:title" content="${config.meta.name}"/>
 <meta property="theme-color" content="${config.meta.color}">
-<meta name="og:description" content="File not found">`;
-    res.send(html);
+<meta property="og:description" content="File not found">`;
+    return res.status(404).send(html);
   }
   const html = `
 <meta property="og:title" content="${config.meta.name}"/>
 <meta property="og:image" content="${config.meta.baseurl}/files/${key}?noembed">
 <meta property="theme-color" content="${config.meta.color}">
-<meta name="twitter:card" content="summary_large_image">
-<img src="${config.meta.baseurl}/files/${key}?noembed"/>`;
+<meta property="twitter:card" name="twitter:card" content="summary_large_image">
+<img src="${config.meta.baseurl}/files/${key}?noembed=1"/>`;
   res.send(html);
 });
 router.get(
