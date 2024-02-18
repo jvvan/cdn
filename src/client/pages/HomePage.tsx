@@ -55,7 +55,7 @@ export function HomePage() {
         <div>
           <a
             className="underline underline-offset-4 hover:text-muted-foreground"
-            href={`/files/${row.original._id}.${row.original.type}`}
+            href={`/files/${row.original._id}.${row.original.type}/download`}
           >
             {row.original.name}
           </a>
