@@ -26,7 +26,7 @@ router.get("/files/embed/:key", (req, res) => {
   }
   const html = `
 <meta property="og:title" content="${config.meta.name}"/>
-<meta property="og:image" content="${config.meta.baseurl}/files/${key}?noembed">
+<meta property="og:image" content="${config.meta.baseurl}/files/${key}?raw">
 <meta property="theme-color" content="${config.meta.color}">
 <meta property="twitter:card" name="twitter:card" content="summary_large_image">
 <img src="${config.meta.baseurl}/files/${key}?raw"/>
