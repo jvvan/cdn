@@ -49,6 +49,7 @@ const Navbar = () => {
       <div className="flex items-center justify-end pr-4 space-x-4 lg:space-x-6 ">
         <NavbarItem to="/">Home</NavbarItem>
         <NavbarItem to="/upload">Upload</NavbarItem>
+        {auth.admin == true && <NavbarItem to="/users">Users</NavbarItem>}
 
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger>

@@ -14,6 +14,7 @@ import { UploadPage } from "./pages/UploadPage";
 import { UsersPage } from "./pages/UsersPage";
 import { WhitelistedOnly } from "./routes/WhitelistedOnly";
 import { LoadingPage } from "./pages/LoadingPage";
+import { AdminOnly } from "./routes/AdminOnly";
 
 function App() {
   const loading = useStoreState((state) => state.loading);
@@ -54,7 +55,7 @@ function App() {
                 <Route path="/tokens" Component={TokensPage} />
                 <Route path="/" Component={WhitelistedOnly(HomePage)} />
                 <Route path="/upload" Component={WhitelistedOnly(UploadPage)} />
-                <Route path="/users" Component={WhitelistedOnly(UsersPage)} />
+                <Route path="/users" Component={AdminOnly(UsersPage)} />
               </Routes>
             </BrowserRouter>
           </>
